@@ -16,13 +16,13 @@ public class IO {
 	  
 	  public static void checkIfExist()
 	  {
-	    if (!folder.exists()) {
-	      folder.mkdirs();
+	    if (!folder.exists()) { // if the record folder doesn't exists yet
+	      folder.mkdirs(); // create it
 	    }
-	    if (!score.exists()) {
+	    if (!score.exists()) { // and if the file to store the record data doesn't exists
 	      try
 	      {
-	        score.createNewFile();
+	        score.createNewFile(); // then create it
 	      }
 	      catch (IOException localIOException) {}
 	    }
@@ -33,9 +33,9 @@ public class IO {
 	    
 	    try
 	    {
-	      bw = new BufferedWriter(new FileWriter(score));
-	      bw.write(String.valueOf(points));
-	      bw.close();
+	      bw = new BufferedWriter(new FileWriter(score)); // Opens a data stream with the saves file
+	      bw.write(String.valueOf(points)); // writes in the record
+	      bw.close(); // and makes sure to close the data stream
 	    }
 	    catch (IOException localIOException) {}
 	  }
@@ -44,12 +44,12 @@ public class IO {
 	  {
 	    try
 	    {
-	      br = new BufferedReader(new FileReader(score));
-	      if (br.ready()) {
-	        return br.readLine();
+	      br = new BufferedReader(new FileReader(score)); // Opens a data stream with the saves file
+	      if (br.ready()) { // if it's ready to do his job
+	        return br.readLine(); // return the first line (the record) of the file as a String
 	      }
 	    }
 	    catch (IOException localIOException) {}
-	    return "0";
-	  }
-}
+	    return "0"; // this code will never be reached, cause in case the br.readLine() is null, the program will just
+	  } // crash or return "", an empty string, just added this to not make the compilation crash, cause java can't understand
+} // this little thing apparently lol
