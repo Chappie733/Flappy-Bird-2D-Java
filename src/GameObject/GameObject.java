@@ -5,10 +5,10 @@ import java.awt.Rectangle;
 
 public class GameObject {
 	
-	protected float x, y;
-	protected float width, height;
-	protected float dx, dy;
-	
+	protected float x, y; // x and y position in the window (in pixels)
+	protected float width, height; // width and height of the object (in pixels)
+	protected float dx, dy; // the direction in the x and y axis
+	// Constructor, called when you create an object of the class (Example: GameObject obj = new GameObject(100, 100);
 	public GameObject(float x, float y) {
 		this.x = x;
 		this.y = y;
@@ -19,9 +19,9 @@ public class GameObject {
 	public void render(Graphics2D g) {}
 	
 	public Rectangle getHitBox() {
-		return new Rectangle((int) x, (int) y, (int) width, (int) height);
+		return new Rectangle((int) x, (int) y, (int) width, (int) height); // gets the hitbox
 	}
-
+	// Getters and setters
 	public float getX() {
 		return x;
 	}
