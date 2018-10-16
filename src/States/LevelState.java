@@ -28,7 +28,7 @@ public class LevelState{
 	private boolean wasPaused;
 	
 	public LevelState() {
-		Music.SetVolume(0.15f);
+		Music.SetVolume(0.15f); // this happens only when the game is first started!
 		PointSound.SetVolume(0.85f);
 		DeathSound.SetVolume(0.25f);
 		IO.checkIfExist(); // Checks if the file to save the record exists, if it doesn't it creates one
